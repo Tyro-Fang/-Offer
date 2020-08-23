@@ -109,22 +109,22 @@ def QuickSortpartiton(nums,beginIndex,endIndex):
     j=endIndex#结束位置从最后一个数开始
     v=nums[beginIndex]
     while True:
-        while a[i]<v:#没有等于条件，避免部分元素与比较元素相同时陷入死循环
+        while nums[i]<v:#没有等于条件，避免部分元素与比较元素相同时陷入死循环
             if i==endIndex:
                 break
             i+=1
-        while v<a[j]:
+        while v<nums[j]:
             if j==beginIndex:
                 break
             j-=1
         if i>=j:
             break
-        temp=a[i]
-        a[i]=a[j]
-        a[j]=temp
-    temp=a[beginIndex]
-    a[beginIndex]=a[j]
-    a[j]=temp
+        temp=nums[i]
+        nums[i]=nums[j]
+        nums[j]=temp
+    temp=nums[beginIndex]
+    nums[beginIndex]=nums[j]
+    nums[j]=temp
     return j
 #快速排序算法优化
 #1.小数组排序中插入排序比快速排序更快，所以在5-15个元素的小数组时可以改为插入排序
