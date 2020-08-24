@@ -21,7 +21,7 @@ def NTimes(strNum):
         count+=(slen-1)*pow(10,slen-2)
         NTimes(strNum[1:])
     
-a=1
+a=21345
 print(NTimesOfOne(a))
 
 
