@@ -18,7 +18,6 @@ def FindUglyNum(index):
         target+=1
     return res[index-1]
 
-
 def Min(n1,n2,n3):
     min=n1 if n1<n2 else n2
     return min if min<n3 else n3

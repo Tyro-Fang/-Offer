@@ -61,7 +61,7 @@ def MergeSort(nums):#归并排序，时间复杂度Onlogn，空间复杂度On
         return None
     N=len(nums)
     MergeSortsort(nums,0,N-1)#自顶向下排序
-    return   nums
+    return  nums
 
 def MergeSortsort(nums,beginIndex,endIndex):
     if endIndex<=beginIndex:
@@ -88,6 +88,7 @@ def MergeSortemerge(nums,beginIndex,middleIndex,endIndex):
         else:
             nums[k]=ax[j-beginIndex]
             j+=1
+    
 
 
 
