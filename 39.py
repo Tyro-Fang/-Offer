@@ -4,26 +4,18 @@ class BinaryTreeNode:
         self.leftNode=None
         self.rightNode=None
 
-result=0
 
-def FindDepth(rootNode,depth):
-    global result
-    if rootNode.leftNode==None and rootNode.rightNode==None:
-        if depth>result:
-            result=depth
-        return 
-    if rootNode.leftNode!=None:
-        depth+=1
-        FindDepth(rootNode.leftNode,depth)
-        depth-=1
-    if rootNode.rightNode!=None:
-        depth+=1
-        FindDepth(rootNode.rightNode,depth)
+def FindDepth(rootNode):
+    if rootNode==None :
+        return 0
+    left=FindDepth(rootNode.leftNode)
+    right=FindDepth(rootNode.rightNode)
+    return left+1 if left>right else right+1
     
 def FindDepthOfTree(rootNode):
     if rootNode==None:
         return
-    FindDepth(rootNode,1)
+    return FindDepth(rootNode)
 
 a1=BinaryTreeNode(10)
 a2=BinaryTreeNode(5)       
@@ -40,5 +32,4 @@ a2.rightNode=a5
 a3.leftNode=a6
 a6.leftNode=a7
 
-FindDepthOfTree(a1)
-print(result)
+print(FindDepthOfTree(a1))
