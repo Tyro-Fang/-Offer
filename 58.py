@@ -10,3 +10,6 @@ def NextNode(rootNode):
         return None
     if rootNode.leftNode==None and rootNode.rightNode==None and rootNode.father==None:
         return None
+    if rootNode.father!=None:
+        return None
+    if 
