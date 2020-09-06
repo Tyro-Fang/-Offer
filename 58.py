@@ -16,12 +16,18 @@ def NextNode(rootNode):
         if rootNode.father.leftNode==rootNode:
             return rootNode.father
         else:
-            
-    elif 
-        
+            return FatherNode(rootNode)
+
     
 def LeftNode(rootNode):
     if rootNode.leftNode==None:
         return rootNode
     else:
         return LeftNode(rootNode.leftNode)
+def FatherNode(rootNode):
+    if rootNode.father.father!=None:
+        if rootNode.father==rootNode.father.father.leftNode:
+            return rootNode.father.father
+        else:
+            return FatherNode(rootNode.father)
+    return None
