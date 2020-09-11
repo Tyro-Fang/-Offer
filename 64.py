@@ -1,2 +1,3 @@
  def FindMiddleNum(a):
-     return
+    if a==None:
+        return None
