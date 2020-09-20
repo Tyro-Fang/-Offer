@@ -13,14 +13,23 @@ def swim(lists,k):
         exch(lists,k//2,k)
         k=k//2
 
-def sink(lists,k):
-    while 2*k<=len(lists):
+def sink(lists,k,N):
+    while 2*k<=N:
         j=2*k
-        if j<len(lists) and less(lists[j],lists[j+1]):
+        if j<N and less(lists[j],lists[j+1]):
             j+=1
         if not less(lists[k],lists[j]):
             break
         exch(lists,k,j)
         k=j
-        
+
+def heapSort(lists):
+    llen=len(lists)
+    for i in range(llen//2,0,-1):
+        sink(lists,i,llen)
+    while llen>1:
+        exch(lists,1,llen)
+        llen-=1
+        sink(lists,1,llen)
+    
 

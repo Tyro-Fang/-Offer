@@ -1,25 +1,37 @@
-class MaxHeap:
+import heapq
+class Solution:
     def __init__(self):
-        self.val=[]
-        self.length=0
-    def less(a,b):
-        if a<b:
-            return True
-        return False
-    
-    def sink(vals,n):
-        k=0
-        while 2*k+1<n:
-            temp=vals[k]
-            if less(vals[k],vals[2*k+1]):
-                
-
-    def insertNum(self,val):
-        
-
-
-
-
-def FindMiddleNum(a):
-    if a==None:
-        return None
+        self.max_heap = []
+        self.min_heap = []
+        self.isfirst=True
+ 
+    def Insert(self, num):
+        # write code here
+        if not self.min_heap:
+            self.min_heap.append(num)
+            self.max_heap.append(-num)
+        elif self.isfirst and len(self.min_heap) == 1 and len(self.max_heap) ==1:
+            self.isfirst = False
+            if num > self.min_heap[0]:
+                self.min_heap[0] = num
+            else:
+                self.max_heap[0] = -num
+        else:
+            if num >= -1*self.max_heap[0]:
+                heapq.heappush(self.min_heap, num)
+            else:
+                heapq.heappush(self.min_heap, -1 * heapq.heappop(self.max_heap))
+                heapq.heappush(self.max_heap, -num)
+        if len(self.min_heap) - len(self.max_heap) >1:
+            heapq.heappush(self.max_heap, -1 * heapq.heappop(self.min_heap))
+        elif len(self.max_heap) - len(self.min_heap) >1:
+            heapq.heappush(self.min_heap, -1 * heapq.heappop(self.max_heap))           
+ 
+    def GetMedian(self,n=None):
+        # write code here
+        if len(self.min_heap) == len(self.max_heap):
+            return 0.5 * (-1 * self.max_heap[0] + self.min_heap[0])
+        elif len(self.min_heap) > len(self.max_heap):
+            return self.min_heap[0]
+        else:
+            return -1 * self.max_heap[0]
